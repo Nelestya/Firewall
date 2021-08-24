@@ -1,0 +1,14 @@
+[Unit]
+Description=Firewall
+Requires=network-online.target
+After=network-online.target
+ 
+[Service]
+User=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/etc/firewall/enable.sh start
+ExecStop=/etc/firewall/enable.sh stop
+ 
+[Install]
+WantedBy=multi-user.target
